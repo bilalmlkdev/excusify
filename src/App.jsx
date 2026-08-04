@@ -25,15 +25,15 @@ export default function App() {
   const isDark = settings.theme === "dark";
   const { toast, showToast } = useToast();
 
-  // ─── Loader state ──────────────────────────────────────────────────
+  //  Loader state
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 1500);
+    const timer = setTimeout(() => setIsLoading(false), 800);
     return () => clearTimeout(timer);
   }, []);
 
-  // ─── Core state ────────────────────────────────────────────────────
+  //  Core state
   const [activeSit, setActiveSit] = useState(() => {
     const fromUrl = readUrlParams();
     const saved = settings.localStorage ? load(LS_KEY, null) : null;
@@ -111,7 +111,7 @@ export default function App() {
     tabOpen,
   });
 
-  // ─── Refined Theme Classes ──────────────────────────────────────────
+  //  Refined Theme Classes
   const bg = isDark ? "bg-zinc-950" : "bg-zinc-50";
   const cardBg = isDark ? "bg-zinc-900" : "bg-white";
   const cardBorder = isDark ? "border-zinc-800" : "border-zinc-200";
@@ -128,10 +128,10 @@ export default function App() {
     <div
       className={`min-h-screen ${bg} transition-colors duration-500 font-sans selection:bg-emerald-500 selection:text-white dark:selection:bg-emerald-400 dark:selection:text-zinc-950`}
     >
-      {/* Loader overlay – above everything */}
+      {/* Loader overlay  above everything */}
       {isLoading && <Loader isDark={isDark} />}
 
-      {/* Background – fixed, full screen, behind everything */}
+      {/* Background -fixed , full screen, behind everything */}
       <div className="fixed inset-0 z-0 pointer-events-none">
          <PixelBlast
     variant="square"
@@ -223,7 +223,7 @@ export default function App() {
             }
           />
 
-          <FooterStats totalCount={totalCount} textSecondary={textSecondary} />
+         <FooterStats totalCount={totalCount} isDark={isDark} />
         </div>
       </div>
 

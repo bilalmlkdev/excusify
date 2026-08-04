@@ -20,7 +20,7 @@ function ExcuseCard({
 }) {
   if (!excuse) return null;
 
-  // Solid backgrounds – same as header buttons
+  // Solid backgrounds
   const cardClass = isDark
     ? "border-zinc-700 bg-zinc-900"
     : "border-zinc-200 bg-white";

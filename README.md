@@ -1,195 +1,344 @@
-# <a href="https://excusify.vercel.app" target="_blank">Excusify - Developer Excuse Generator</a>
-
-> Because "I don't know" isn't always professional enough.
-
-<p align="left">
-  <img src="https://img.shields.io/badge/Status-complete-9B72FF?style=flat" />
-  <img src="https://img.shields.io/badge/Built%20with-React%20%2B%20Vite-9B72FF?style=flat" />
-  <img src="https://img.shields.io/badge/Styling-Tailwind%20CSS-9B72FF?style=flat" />
-  <img src="https://img.shields.io/badge/license-MIT-9B72FF?style=flat" />
-  <a href="https://github.com/byllzz">
-    <img src="https://img.shields.io/badge/Author-Bilal%20Malik-9B72FF?style=flat" />
+<p align="center">
+  <a href="https://excusify.vercel.app/">
+    <img src="./src/assets/preview.png" alt="Excusify Preview">
   </a>
-  <img src="https://img.shields.io/badge/Deployed%20on-Vercel-9B72FF?style=flat" />
-  <img src="https://img.shields.io/badge/Latest%20Release-28%20April%202026-9B72FF.svg" alt="Latest Release Badge" />
 </p>
 
-<br />
+<h1 align="center">Excusify</h1>
 
-[![Visit Excusify](https://img.shields.io/badge/View-excusify-9B72FF?style=flat)](https://excusify.vercel.app)
+<p align="center">
+  A modern, open-source excuse generator for developers, teams, and anyone who needs a quick, professional-sounding reason. Choose from six situations, four tones, and generate the perfect excuse in seconds, right in your browser.
+</p>
 
-<img width="100%" alt="Excusify Preview" src="./src/assets/preview.png" />
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Complete-9B26FF?style=flat"/>
+  <img src="https://img.shields.io/badge/React-Vite-9B26FF?style=flat"/>
+  <img src="https://img.shields.io/badge/Tailwind-v4-9B26FF?style=flat"/>
+  <img src="https://img.shields.io/badge/JavaScript-ES6+-9B26FF?style=flat"/>
+  <img src="https://img.shields.io/badge/License-MIT-9B26FF?style=flat"/>
+  <img src="https://img.shields.io/badge/Deploy-Vercel-9B26FF?style=flat"/>
+</p>
 
-⭐ Star it on GitHub if it saved your standup - you know it did.
-
----
-
-## What is Excusify?
-
-Excusify is a dev-focused tool that generates context-aware excuses for common engineering situations - missed deadlines, production outages, unreviewed PRs, failed deploys, and more.
-
-Pick your situation, pick your tone, get an excuse. Copy it. Send it. Survive the standup.
-
-Whether you need a polished corporate response for your PM, a chaotic one-liner for your tech lead, or a desperate plea for your team - Excusify has you covered. It also hooks into the Claude API so you can type in any custom situation and get a freshly generated, believable excuse on the spot.
-
----
-
-## Features
-
-✔️ **6 built-in situations** - bug still exists, missed deadline, prod went down, PR not reviewed, deploy failed, missed standup<br>
-✔️ **4 tones** - professional, chaotic, desperate, corporate bs<br>
-✔️ **Excuse of the day** - seed-based daily excuse, same for everyone on the same date<br>
-
-Sharing & social<br>
-✔️ **Share as image** - download a tweet-ready PNG card via `html2canvas` (improved templates)<br>
-✔️ **Twitter & LinkedIn** - one-click share actions that open the native share compose<br>
-✔️ **Slack & WhatsApp** - pre-formatted deep links for quick sharing<br>
-✔️ **Copy as Slack block** - paste-ready bold + quoted format<br>
-✔️ **Shareable URL** - unique link per excuse encoded in URL params<br>
-
-Persistence & discovery<br>
-✔️ **Favorites** - star and save your best excuses, persisted to `localStorage`<br>
-✔️ **Excuse history** - shows the latest 10 by default with a "show all" toggle; history capped to avoid localStorage bloat<br>
-✔️ **All-time counter** - tracks total excuses generated<br>
-
-UX, accessibility & productivity<br>
-✔️ **Settings panel** - slide-in drawer; active tab persisted (but transient open state is not)<br>
-✔️ **Dark / Light mode** - full theme toggle, persisted across reloads<br>
-✔️ **localStorage toggle** - opt in or out of data persistence<br>
-✔️ **Auto-copy** - copies excuse to clipboard automatically on generate<br>
-✔️ **Sound effects** - subtle synthesized audio feedback via Web Audio API<br>
-✔️ **Keyboard shortcuts & help overlay** - `Space` generate, `?` show keyboard help, `S`/`T` focus pickers, `C` copy, `F` favorite<br>
-
-Developer & repo<br>
-✔️ **Repo tab** - view GitHub metadata, open issues, and top contributors inside the app; `RepoTab` reads `package.json` (`repository.url`) or a custom `excusify.repo` field
+<p align="center">
+  <a href="https://excusify.vercel.app/">Live Demo</a>
+  •
+  <a href="https://github.com/byllzz/excusify/issues/new">Report Bug</a>
+  •
+  <a href="https://github.com/byllzz/excusify/issues/new">Request Feature</a>
+</p>
 
 
----
+# About Excusify
 
-## Tech Stack
+**Excusify** is an open-source excuse generator built for developers, teams, and anyone who's ever needed a quick, believable reason to explain a missed deadline, bug, or deployment failure.
 
-- [**React**](https://react.dev/) + [**Vite**](https://vitejs.dev/) - component architecture and build tooling
-- [**Tailwind CSS**](https://tailwindcss.com/) - utility-first styling, dark/light theme
-- [**html2canvas**](https://html2canvas.hertzen.com/) - DOM-to-PNG image export for share cards
-- [**Web Audio API**](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) - synthesized sound effects, no external files
-- [**Vercel**](https://vercel.com) - deployment and hosting
+It combines a curated collection of situations and tones into a clean, responsive interface that lets you generate, save, and share excuses with just a few clicks.
 
----
+Unlike generic excuse generators, **Excusify** is tailored specifically for the engineering world. Choose from six realistic situations such as **Bug Still Exists**, **Deploy Failed**, or **Production Went Down**, then combine them with one of four writing styles ranging from professional to complete corporate nonsense.
 
-## Project Structure
+Everything runs entirely inside your browser.
 
+- No external APIs
+- No server-side processing
+- No tracking
+- Fully client-side
+- Favorites and history stored locally using `localStorage`
+
+Your data never leaves your device.
+
+
+# Features
+
+Excusify combines a polished interface, curated excuse library, sharing tools, and privacy-first architecture into one lightweight application.
+
+| Category | Features |
+|-----------|----------|
+| **Situations** | Bug Still Exists • Missed Deadline • Production Went Down • Deploy Failed • Missed Standup • PR Not Reviewed |
+| **Tones** | Professional • Chaotic • Desperate • Corporate BS |
+| **Excuse Generator** | Random generation • Avoid repeated excuses • Spacebar shortcut |
+| **Favorites** | Save up to 20 excuses • Remove individually • Clear all |
+| **History** | Stores last 10 generated excuses • Copy previous excuses • Clear history |
+| **Rating** | Mark excuses as *Believable* or *Too Obvious* |
+| **Sharing** | Copy Text • Slack Format • PNG Export • Twitter • LinkedIn • WhatsApp • Slack |
+| **Keyboard Shortcuts** | Space • S • T • C • F • ? |
+| **Excuse of the Day** | Daily deterministic excuse based on the current date |
+| **Theme** | Light & Dark Mode with persistent preference |
+| **Settings** | Auto Copy • Sound Effects • Update URL • Show/Hide Hints • Counter • Excuse of the Day • Clear Local Data |
+| **Privacy** | 100% Client-side • No Tracking • No Analytics • No APIs |
+
+
+# Architecture
+
+Excusify is built around a simple idea: every generated excuse should be **consistent**, **shareable**, and completely **independent from the user interface**.
+
+The application uses a centralized excuse generator that selects a random excuse from the chosen **situation** and **tone** combination. The React interface simply captures user selections, passes them to the generator, and displays the result.
+
+All generated excuses, favorites, settings, and history are stored locally using **localStorage**, allowing data to persist between browser sessions without relying on external services.
+
+Everything runs entirely inside the browser.
+
+- No backend
+- No APIs
+- No databases
+- No authentication
+- No tracking
+
+This keeps the application lightweight, fast, and privacy-friendly.
+
+
+# Adding a New Excuse
+
+Expanding Excusify only requires two simple steps.
+
+## Step 1 - Add the Excuses
+
+Open:
+
+```text
+src/data/excuses.js
 ```
-excusify/
-├── public/
-│   ├── favicon.svg
-│   ├── favicon.png
-│   ├── apple-touch-icon.png
-│   └── og-image.png
-├── src/
-│   ├── components/
-│   │   ├── SituationPicker.jsx   # situation selector buttons
-│   │   ├── TonePicker.jsx        # tone selector pills
-│   │   ├── ExcuseCard.jsx        # excuse output with all share actions
-│   │   ├── ShareCard.jsx         # hidden card captured by html2canvas
-│   │   ├── EotdBanner.jsx        # excuse of the day strip
-│   │   └── SettingsPanel.jsx     # slide-in settings drawer
-│   ├── data/
-│   │   ├── excuses.js            # all 72 built-in excuses
-│   │   ├── situations.js         # situation list with icons
-│   │   └── tones.js              # tone list with ids
-│   ├── App.jsx                   # root component, all state lives here
+
+Add a new situation along with its available tones.
+
+```js
+"new situation": {
+  professional: [
+    "Excuse 1",
+    "Excuse 2"
+  ],
+  chaotic: [
+    "Excuse A",
+    "Excuse B"
+  ],
+  desperate: [],
+  corporate: []
+}
+```
+
+
+
+## Step 2 - Register the Situation (Optional)
+
+If you'd like the new situation to appear in the situation picker, open:
+
+```text
+src/data/situations.js
+```
+
+Add a new entry:
+
+```js
+{
+  id: 7,
+  label: "New Situation",
+  icon: YourIcon
+}
+```
+
+Once added, the new excuses automatically become available throughout the application without requiring any additional configuration.
+
+
+
+# Project Structure
+
+```text
+excusify
+├── public
+├── src
+│   ├── components
+│   │   ├── layout
+│   │   ├── modals
+│   │   ├── pickers
+│   │   ├── sections
+│   │   └── ui
+│   ├── data
+│   ├── hooks
+│   ├── lib
+│   ├── utils
+│   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
-├── index.html
 ├── package.json
-├── vite.config.js
-├── tailwind.config.js
-└── README.md
+└── vite.config.js
 ```
+# Performance
+
+Excusify is optimized for a fast, lightweight experience.
+
+- **Memoized Components** reduce unnecessary re-renders.
+- **Local Persistence** stores favorites, history, and settings using `localStorage`.
+- **Zero Network Requests** because everything runs client-side.
+- **Optimized Rendering** keeps interactions smooth across modern browsers.
+
+# Built With
+
+Excusify is built using a modern frontend stack focused on performance, maintainability, and developer experience.
+
+| Technology | Purpose |
+|------------|---------|
+| **React** | Component-based user interface |
+| **Vite** | Fast development server and optimized production builds |
+| **Tailwind CSS v4** | Utility-first styling framework |
+| **JavaScript (ES6+)** | Core application logic |
+| **Lucide React** | Modern icon library |
+| **React Icons** | Additional icon collections |
+| **html2canvas** | Export excuse cards as PNG images |
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=react,vite,tailwind,js,git" />
+</p>
+
+
+
+# Getting Started
+
+Running Excusify locally only takes a few minutes.
+
+## Prerequisites
+
+Before getting started, make sure you have the following installed:
+
+- Node.js (Latest LTS recommended)
+- npm or Yarn
+- A modern web browser (Chrome, Edge, Firefox, or Safari)
+
+
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/byllzz/excusify.git
+```
+
+### 2. Navigate to the project
+
+```bash
+cd excusify
+```
+
+### 3. Install dependencies
+
+```bash
+npm install
+```
+
+### 4. Start the development server
+
+```bash
+npm run dev
+```
+
+Once the server is running, open the local URL displayed in your terminal.
 
 ---
 
-## Getting Started
+# Production Build
+
+Create an optimized production build:
 
 ```bash
-# clone the repo
-git clone https://github.com/byllzz/excusify.git
-cd excusify
-
-# install dependencies
-npm install
-
-# run locally
-npm run dev
-
-# build for production
 npm run build
 ```
 
----
-
-## Usage
-
-- Pick a **situation** from the selector - 6 built-in options covering the most common dev scenarios
-- Pick a **tone** - professional, chaotic, desperate, or corporate bs
-- Hit **generate excuse** or press `Space` to generate
-- **Copy**, **share**, **rate**, or **star** the excuse from the card
-- Use the **custom situation** input below the card - type any situation and get an AI-generated excuse
-- Check the **Excuse of the Day** banner for today's featured excuse (changes daily for everyone)
-- Click the **⚙ settings** icon to configure theme, sound, storage, auto-copy, and shortcuts
-- Share via the **shareable URL** - every generated excuse gets its own link in the address bar
-
----
-
-## Settings
-
-| Setting | Description |
-|---|---|
-| **Theme** | Toggle dark / light mode across the entire app |
-| **localStorage** | Persist your selections, excuse, and count across reloads |
-| **Auto-copy** | Automatically copy excuse to clipboard on generate |
-| **Keyboard shortcut** | Enable `Space` to trigger generate |
-| **Sound effects** | Subtle synthesized pop on generate |
-| **Excuse history** | View and clear your last 10 generated excuses |
-| **Favorites** | View and clear your starred excuses |
-| **Clear all data** | Wipe all saved state from localStorage |
-
----
-
-## Contributing
-
-Got a better excuse? Found a tone that's missing? Open a PR.
+Preview the production build locally:
 
 ```bash
-# 1. fork the repo
-# 2. create your branch
-git checkout -b feat/your-feature
-
-# 3. make your changes
-# 4. commit
-git commit -m "feat: add your feature"
-
-# 5. push and open a PR
-git push origin feat/your-feature
+npm run preview
 ```
 
-**Ways to contribute:**
 
-- Add new situations to `src/data/situations.js` and `src/data/excuses.js`
-- Add new tones - follow the existing pattern in `tones.js` and `excuses.js`
- - Improve custom templates for generated excuses
-- Fix bugs - open an issue first so we can discuss
-- Improve accessibility - ARIA labels, focus management, keyboard nav
-- Translate excuses - open a PR with a new locale file
 
-**Please keep PRs focused** - one feature or fix per PR. If you're unsure whether something fits, open an issue first.
+# Contributing
+
+Contributions of every size are welcome.
+
+Whether you're fixing a typo, improving accessibility, optimizing performance, adding new excuse categories, or introducing an entirely new feature, every contribution helps make **Excusify** better.
+
+Before opening a pull request, take a moment to understand how the project is organized. Most additions only require changes inside the data files thanks to the application's modular architecture.
+
+## Adding a New Excuse
+
+### 1. Add the Excuses
+
+Open:
+
+```text
+src/data/excuses.js
+```
+
+Add your new situation and its tone variations.
+
+### 2. Register the Situation (Optional)
+
+Open:
+
+```text
+src/data/situations.js
+```
+
+Add a new picker entry with a unique `id` and icon.
+
+Once completed, the new excuses automatically become available throughout the application without any additional configuration.
 
 ---
 
+# Author
 
-# License 
+<p align="left">
+  <img src="https://github.com/byllzz.png" width="90" alt="Bilal Malik"  />
+</p>
 
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
-# Feedback
+<h3 align="left">Bilal Malik</h3>
 
-*Please contact me at **bilalmlkdev@gmail.com**. if you have any feedback or suggestions. :star: Star it, if you like it!*
+<p align="left">
+
+[![GitHub](https://img.shields.io/badge/GitHub-byllzz-9B72FF?style=flat&logo=github&logoColor=white)](https://github.com/byllzz)
+[![X](https://img.shields.io/badge/Twitter-@bilalmlkdev-9B72FF?style=flat&logo=x&logoColor=white)](https://x.com/bilalmlkdev)
+[![Portfolio](https://img.shields.io/badge/Portfolio-bilalmlkdev.vercel.app-9B72FF?style=flat&logo=vercel&logoColor=white)](https://bilalmlkdev.vercel.app)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bilal%20Malik-9B72FF?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bilalmlkdev/)
+[![Email](https://img.shields.io/badge/Email-bilalmlkdev@gmail.com-9B72FF?style=flat&logo=gmail&logoColor=white)](mailto:bilalmlkdev@gmail.com)
+
+</p>
+
+<p align="right">
+<a href="#excusify">⬆ Back to Top</a>
+</p>
+
+
+# License
+
+This project is licensed under the **MIT License**.
+
+```text
+MIT License
+
+Copyright (c) 2026 Bilal Malik
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+
+<p align="left">
+© 2026 <strong>Excusify</strong>. Licensed under the MIT License.
+</p>
+
+---
+

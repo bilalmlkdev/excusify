@@ -1,6 +1,6 @@
 // src/components/layout/FooterStats.jsx
 import { useEffect, useState } from "react";
-import {  Star, ExternalLink } from "lucide-react";
+import { Star, ExternalLink } from "lucide-react";
 import pkg from "../../../package.json";
 import { FaGithub } from "react-icons/fa";
 
@@ -50,7 +50,8 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
     };
   }, [parsed]);
 
-  const footerCl = isDark ? "text-white" : "text-black";
+  // Force color with !important to override any inheritance
+  const textCl = isDark ? "text-white!" : "text-black!";
   const hoverCl = isDark
     ? "hover:text-zinc-200 hover:border-zinc-500"
     : "hover:text-zinc-900 hover:border-zinc-300";
@@ -61,7 +62,7 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
     >
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p
-          className={`font-sans text-[11px] uppercase tracking-tight font-semibold ${footerCl}`}
+          className={`font-sans text-[11px] uppercase tracking-tight font-semibold ${textCl}`}
         >
           Excusify · Open Source
         </p>
@@ -70,7 +71,7 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
             href={repoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors ${footerCl} ${hoverCl}`}
+            className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors ${textCl} ${hoverCl}`}
           >
             <FaGithub className="w-3.5 h-3.5" />
             <span>GitHub</span>
@@ -81,12 +82,12 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
 
       <div className="flex flex-wrap items-center justify-between gap-1.5">
         {totalCount > 0 && (
-          <p className={`font-serif italic text-sm opacity-80 ${footerCl}`}>
+          <p className={`font-serif italic text-sm opacity-80 ${textCl}`}>
             {totalCount.toLocaleString()} excuses generated since inception.
           </p>
         )}
         {stars !== null && (
-          <div className={`flex items-center gap-1 text-[11px] ${footerCl}`}>
+          <div className={`flex items-center gap-1 text-[11px] ${textCl}`}>
             <Star
               className={`w-3.5 h-3.5 ${isDark ? "text-yellow-400/70" : "text-yellow-500/70"}`}
             />
@@ -94,7 +95,7 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
           </div>
         )}
         {loading && (
-          <span className={`text-[10px] ${footerCl}`}>Loading stars…</span>
+          <span className={`text-[10px] ${textCl}`}>Loading stars…</span>
         )}
       </div>
     </div>

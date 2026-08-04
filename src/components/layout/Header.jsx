@@ -2,7 +2,6 @@
 import { memo } from "react";
 
 export const Header = memo(({ title, subtitle, hints, isDark, children }) => {
-  // Emerald‑themed pills – solid background, white text, with an icon
   const hintCl = isDark
     ? "border-emerald-500/30 bg-emerald-500 text-white"
     : "border-emerald-500/20 bg-emerald-500 text-white";
