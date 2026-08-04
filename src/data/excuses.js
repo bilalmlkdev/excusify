@@ -1,6 +1,5 @@
-
 export const excuses = {
-  'bug still exists': {
+  "bug still exists": {
     professional: [
       "The issue has been identified and a fix is in progress. It involves an edge case with state management that only manifests under specific race conditions.",
       "This is a known regression introduced in the last sprint. We're prioritizing it for the next patch release.",
@@ -22,7 +21,7 @@ export const excuses = {
       "We're aligning cross-functional stakeholders to drive a sustainable, scalable fix to this critical path issue.",
     ],
   },
-  'missed deadline': {
+  "missed deadline": {
     professional: [
       "The scope expanded mid-sprint after the design review, which pushed the timeline by two days.",
       "We hit an unexpected dependency on a third-party API that wasn't documented in the spec.",
@@ -44,7 +43,7 @@ export const excuses = {
       "The timeline shift reflects our commitment to quality over velocity in this strategic initiative.",
     ],
   },
-  'prod went down': {
+  "prod went down": {
     professional: [
       "A config value in the environment variables was overridden during the last deployment. It's been reverted.",
       "The load balancer health checks were misconfigured — traffic was routed to a terminated instance.",
@@ -66,7 +65,7 @@ export const excuses = {
       "This event has been captured in our post-mortem process to prevent future recurrence.",
     ],
   },
-  'deploy failed': {
+  "deploy failed": {
     professional: [
       "The CI pipeline failed on a flaky integration test — we're re-running after a brief hold.",
       "A required environment secret wasn't rotated in the deployment target. It's being updated now.",
@@ -88,7 +87,7 @@ export const excuses = {
       "The release has been temporarily paused to ensure alignment with our change management process.",
     ],
   },
-  'missed standup': {
+  "missed standup": {
     professional: [
       "I had a conflicting incident response call that took priority — I've already caught up on the notes.",
       "The calendar invite was in a timezone that doesn't observe DST. I've corrected my calendar settings.",
@@ -110,7 +109,7 @@ export const excuses = {
       "I proactively reviewed the standup summary and am fully aligned with the team's action items.",
     ],
   },
-  'pr not reviewed': {
+  "pr not reviewed": {
     professional: [
       "The PR is complex and requires input from two teams — we're scheduling a sync to align before merging.",
       "It's blocked on a dependency that's currently in review upstream.",
@@ -132,4 +131,4 @@ export const excuses = {
       "The review cycle is ongoing — we're aligning on technical direction before proceeding to merge.",
     ],
   },
-}
+};
