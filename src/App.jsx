@@ -46,7 +46,7 @@ export default function App() {
   });
   const [panelOpen, setPanelOpen] = useState(false);
   const [tabOpen, setTabOpen] = useState(() => load(LS_QUICK_TAB, null));
-  const [showKeyboardHelp, setShowKeyboardHelp] = useState(true);
+  const [showKeyboardHelp, setShowKeyboardHelp] = useState(false);
 
   const {
     excuse,
