@@ -1,18 +1,14 @@
 // src/components/ui/Loader.jsx
-export function Loader({ isDark }) {
-  const bg = isDark ? "bg-zinc-950" : "bg-zinc-50";
-  const spinnerCl = isDark
-    ? "border-zinc-700 border-t-emerald-400"
-    : "border-zinc-300 border-t-emerald-500";
-
+export function Loader() {
   return (
-    <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center ${bg} transition-colors duration-500 pointer-events-auto`}
-    >
+    <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-paper">
       <div className="flex flex-col items-center gap-4">
-        <div
-          className={`w-10 h-10 border-4 rounded-full animate-spin ${spinnerCl}`}
-        />
+        <div className="flex h-14 w-14 items-center justify-center rounded-xl border-2 border-ink bg-accent font-mono text-2xl font-bold text-accent-ink shadow-hard animate-rise">
+          ?
+        </div>
+        <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted">
+          loading excuses<span className="blink">…</span>
+        </div>
       </div>
     </div>
   );

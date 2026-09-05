@@ -2,33 +2,29 @@
 import { memo } from "react";
 import { IconCheck, IconX } from "../../ui/Icons";
 
-export const RatingButtons = memo(({ rated, onRate, isDark }) => {
-  const inactiveBtn = isDark
-    ? "border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300"
-    : "border-zinc-300 text-zinc-400 hover:border-zinc-400 hover:text-zinc-600";
-
+export const RatingButtons = memo(({ rated, onRate }) => {
   return (
-    <div className="flex gap-2">
+    <div className="flex flex-wrap gap-2">
       <button
         onClick={() => onRate("believable")}
-        className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer flex items-center gap-2 ${
+        className={`inline-flex cursor-pointer items-center gap-1.5 rounded-md border-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide transition-all ${
           rated === "believable"
-            ? "border-emerald-500 bg-emerald-500/10 text-emerald-400"
-            : inactiveBtn
+            ? "border-ink bg-accent text-accent-ink shadow-hard-sm"
+            : "border-line bg-surface text-muted hover:border-ink hover:text-ink"
         }`}
       >
-        <IconCheck className="w-3.5 h-3.5" />
+        <IconCheck className="h-3 w-3" />
         believable
       </button>
       <button
         onClick={() => onRate("obvious")}
-        className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer flex items-center gap-2 ${
+        className={`inline-flex cursor-pointer items-center gap-1.5 rounded-md border-2 px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide transition-all ${
           rated === "obvious"
-            ? "border-red-500 bg-red-500/10 text-red-400"
-            : inactiveBtn
+            ? "border-ink bg-signal text-white shadow-hard-sm"
+            : "border-line bg-surface text-muted hover:border-ink hover:text-ink"
         }`}
       >
-        <IconX className="w-3.5 h-3.5" />
+        <IconX className="h-3 w-3" />
         too obvious
       </button>
     </div>

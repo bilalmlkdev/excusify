@@ -1,6 +1,6 @@
 // src/components/sections/ExcuseCard/ShareCard.jsx
-// Note: This component is rendered off-screen and captured by html2canvas.
-// Keep styling inline to ensure html2canvas captures consistent fonts/colors.
+// Rendered off-screen and captured by html2canvas.
+// Styling must stay INLINE (html2canvas cannot resolve CSS variables).
 
 export default function ShareCard({ excuse, situation, tone, cardRef }) {
   return (
@@ -11,28 +11,60 @@ export default function ShareCard({ excuse, situation, tone, cardRef }) {
         left: "-9999px",
         top: 0,
         width: "600px",
-        background: "#0f1724",
-        borderRadius: "16px",
-        padding: "32px 46px",
+        background: "#fbf8ef",
+        border: "2px solid #1c1810",
+        borderRadius: "12px",
+        boxShadow: "10px 10px 0 0 #1c1810",
+        padding: "34px 44px",
         fontFamily:
-          "Inter, ui-monospace, SFMono-Regular, Menlo, Monaco, monospace",
-        border: "1px solid rgba(255,255,255,0.03)",
-        color: "#e6eef8",
+          "'Space Grotesk', Inter, ui-sans-serif, system-ui, sans-serif",
+        color: "#1c1810",
       }}
     >
-      {/* Excuse with prompt symbol */}
+      {/* top row: wordmark + tag */}
       <div
         style={{
           display: "flex",
-          alignItems: "flex-start",
-          gap: 12,
-          marginBottom: 28,
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: 26,
         }}
       >
         <span
           style={{
-            color: "#34d399",
-            fontSize: 15,
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 11,
+            letterSpacing: "0.28em",
+            textTransform: "uppercase",
+            fontWeight: 700,
+          }}
+        >
+          excusify<span style={{ color: "#809b25" }}>.</span>
+        </span>
+        <span
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 10,
+            letterSpacing: "0.2em",
+            textTransform: "uppercase",
+            color: "#544b39",
+            border: "1.5px solid #d8ceb6",
+            borderRadius: 6,
+            padding: "4px 8px",
+          }}
+        >
+          {situation}
+        </span>
+      </div>
+
+      {/* the excuse */}
+      <div style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
+        <span
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 26,
+            fontWeight: 700,
+            color: "#809b25",
             marginTop: 2,
             flexShrink: 0,
           }}
@@ -41,10 +73,12 @@ export default function ShareCard({ excuse, situation, tone, cardRef }) {
         </span>
         <p
           style={{
-            color: "#eef2ff",
-            fontSize: 16,
-            lineHeight: 1.6,
+            fontFamily: "Georgia, 'Times New Roman', serif",
+            fontStyle: "italic",
+            fontSize: 25,
+            lineHeight: 1.55,
             margin: 0,
+            color: "#1c1810",
             whiteSpace: "pre-wrap",
           }}
         >
@@ -52,35 +86,36 @@ export default function ShareCard({ excuse, situation, tone, cardRef }) {
         </p>
       </div>
 
-      {/* Footer – situation, tone, and URL */}
+      {/* footer */}
       <div
         style={{
-          borderTop: "1px solid rgba(255,255,255,0.03)",
+          marginTop: 30,
+          borderTop: "2px dashed #d8ceb6",
           paddingTop: 16,
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
         }}
       >
-        <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-          <span
-            style={{
-              fontSize: 11,
-              color: "#34d399",
-            }}
-          >
-            {situation}
-          </span>
-          <span
-            style={{
-              fontSize: 11,
-              color: "#93a0b3",
-            }}
-          >
-            {tone}
-          </span>
-        </div>
-        <span style={{ fontSize: 11, color: "#6b7480", letterSpacing: 0.5 }}>
+        <span
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 10,
+            letterSpacing: "0.18em",
+            textTransform: "uppercase",
+            color: "#544b39",
+          }}
+        >
+          {situation} · {tone}
+        </span>
+        <span
+          style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: 10,
+            letterSpacing: "0.14em",
+            color: "#8e8471",
+          }}
+        >
           excusify.vercel.app
         </span>
       </div>

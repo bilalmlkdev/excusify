@@ -1,5 +1,5 @@
 // src/components/ui/RangeSlider.jsx
-export function RangeSlider({ value, max, onChange, isDark }) {
+export function RangeSlider({ value, max, onChange }) {
   return (
     <div className="flex items-center gap-3">
       <input
@@ -8,16 +8,12 @@ export function RangeSlider({ value, max, onChange, isDark }) {
         max={max}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-32 h-1 bg-zinc-700 rounded-full appearance-none cursor-pointer focus:outline-none"
+        className="h-1.5 w-32 cursor-pointer appearance-none rounded-full"
         style={{
-          background: `linear-gradient(to right, #34d399 ${(value / max) * 100}%, ${isDark ? "#3f3f46" : "#d4d4d8"} ${(value / max) * 100}%)`,
+          background: `linear-gradient(to right, #c9f24e ${(value / max) * 100}%, #d8ceb6 ${(value / max) * 100}%)`,
         }}
       />
-      <span
-        className={`text-xs font-medium ${isDark ? "text-zinc-400" : "text-zinc-500"}`}
-      >
-        {value}%
-      </span>
+      <span className="font-mono text-xs font-medium text-ink2">{value}%</span>
     </div>
   );
 }

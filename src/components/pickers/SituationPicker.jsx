@@ -1,38 +1,34 @@
 // src/components/pickers/SituationPicker.jsx
 import { situations } from "../../data/situations";
 
-export default function SituationPicker({ active, onChange, isDark }) {
+export default function SituationPicker({ active, onChange }) {
   return (
     <div>
-      <p
-        className={`text-xs font-sans font-semibold uppercase tracking-widest mb-3
-        ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
-      >
-        // situation
+      <p className="mb-3 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
+        <span className="flex h-4 w-4 items-center justify-center rounded-sm border-2 border-line bg-surface2 text-[8px] text-ink2">
+          01
+        </span>
+        situation
       </p>
-      <div className="flex flex-wrap gap-2">
-        {situations.map((item) => (
-          <button
-            key={item.id}
-            onClick={() => onChange(item.label)}
-            className={`
-              flex items-center gap-2 px-3 py-1.5 rounded-md text-sm font-sans
-              border transition-all duration-150 cursor-pointer
-              ${
-                active === item.label
-                  ? "border-emerald-400 bg-emerald-400/10 text-emerald-400"
-                  : isDark
-                    ? "border-zinc-700 bg-zinc-900 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200"
-                    : "border-zinc-300 bg-white text-zinc-500 hover:border-zinc-400 hover:text-zinc-700"
-              }
-            `}
-          >
-            <span className="text-xs">
-              <item.icon size={18} />
-            </span>
-            {item.label}
-          </button>
-        ))}
+      <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
+        {situations.map((item) => {
+          const isActive = active === item.label;
+          return (
+            <button
+              key={item.id}
+              onClick={() => onChange(item.label)}
+              aria-pressed={isActive}
+              className={`flex cursor-pointer items-center gap-2 rounded-md border-2 px-3 py-2.5 font-mono text-[10px] font-medium uppercase tracking-wide transition-all ${
+                isActive
+                  ? "border-ink bg-accent text-accent-ink shadow-hard-sm"
+                  : "border-line bg-surface text-ink2 hover:border-ink hover:text-ink"
+              }`}
+            >
+              <item.icon size={15} strokeWidth={2} />
+              <span className="truncate">{item.label}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );

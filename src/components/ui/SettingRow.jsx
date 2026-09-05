@@ -1,29 +1,13 @@
 // src/components/ui/SettingRow.jsx
-export function SettingRow({
-  icon: Icon,
-  label,
-  description,
-  children,
-  isDark,
-}) {
+export function SettingRow({ icon: Icon, label, description, children }) {
   return (
     <div className="flex items-center justify-between gap-4 py-2.5">
-      <div className="flex items-center gap-3 flex-1 min-w-0">
-        <Icon
-          className={`w-4 h-4 flex-shrink-0 ${isDark ? "text-zinc-400" : "text-zinc-500"}`}
-        />
+      <div className="flex min-w-0 flex-1 items-center gap-3">
+        <Icon className="h-4 w-4 flex-shrink-0 text-muted" />
         <div className="flex flex-col">
-          <span
-            className={`text-sm font-medium ${isDark ? "text-zinc-200" : "text-zinc-800"}`}
-          >
-            {label}
-          </span>
+          <span className="text-sm font-semibold text-ink">{label}</span>
           {description && (
-            <span
-              className={`text-xs ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
-            >
-              {description}
-            </span>
+            <span className="text-xs text-muted">{description}</span>
           )}
         </div>
       </div>

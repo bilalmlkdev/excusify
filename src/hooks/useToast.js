@@ -9,5 +9,5 @@ export function useToast() {
     setTimeout(() => setToast(null), 3000);
   };
 
-  return { toast, showToast };
+  return { toast, showToast, setToast };
 }

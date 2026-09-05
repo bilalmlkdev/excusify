@@ -7,7 +7,6 @@ export default function QuickTabModal({
   open,
   onClose,
   tab,
-  isDark,
   favorites,
   onClearFavorites,
   history,
@@ -16,30 +15,26 @@ export default function QuickTabModal({
 }) {
   if (!open) return null;
 
-  const settBtn = isDark
-    ? "border-zinc-800/80 text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900/50"
-    : "border-zinc-200/80 text-zinc-500 hover:text-zinc-900 hover:border-zinc-300 hover:bg-zinc-50";
-
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       onClick={onClose}
     >
-      <div className="absolute inset-0 bg-zinc-950/40 dark:bg-black/60 backdrop-blur-md" />
+      <div className="absolute inset-0 bg-ink/50 backdrop-blur-[2px]" />
       <div
-        className={`relative z-10 w-full max-w-2xl rounded-2xl p-8 shadow-2xl transition-all ${isDark ? "bg-[#121212] border border-zinc-800" : "bg-white border border-zinc-200"}`}
+        className="relative z-10 w-full max-w-2xl rounded-xl border-2 border-ink bg-paper p-6 shadow-hard-lg animate-stamp sm:p-8"
         onClick={(e) => e.stopPropagation()}
         tabIndex={-1}
         autoFocus
       >
-        <div className="flex items-start justify-end -mt-4 -mr-4 mb-4">
+        <div className="-mr-2 -mt-2 mb-4 flex items-start justify-end">
           <button
             onClick={onClose}
-            className={`p-2 rounded-xl border ${settBtn}`}
             aria-label="Close"
+            className="flex h-9 w-9 cursor-pointer items-center justify-center rounded-md border-2 border-line bg-surface text-ink2 transition-all hover:border-ink hover:text-ink hover:shadow-hard-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
           >
             <svg
-              className="w-4 h-4"
+              className="h-4 w-4"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -57,18 +52,16 @@ export default function QuickTabModal({
           <FavoritesTab
             favorites={favorites}
             onClearFavorites={onClearFavorites}
-            isDark={isDark}
             onClose={onClose}
           />
         )}
         {tab === "about" && (
-          <AboutTab isDark={isDark} totalCount={totalCount} onClose={onClose} />
+          <AboutTab totalCount={totalCount} onClose={onClose} />
         )}
         {tab === "history" && (
           <HistoryTab
             history={history}
             onClearHistory={onClearHistory}
-            isDark={isDark}
             onClose={onClose}
           />
         )}

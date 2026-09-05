@@ -1,7 +1,6 @@
 // src/components/sections/EotdExcuse.jsx
 import { useMemo } from "react";
 import { excuses } from "../../data/excuses";
-import { BsArrowUpRight } from "react-icons/bs";
 import { formatDate } from "../../utils/helpers";
 
 // random (mulberry32)
@@ -33,59 +32,43 @@ function getEotd() {
   return { excuse: pool[excuseIndex], situation: sit, tone };
 }
 
-export default function EotdExcuse({ isDark, onUse }) {
+export default function EotdExcuse({ onUse }) {
   const eotd = useMemo(() => getEotd(), []);
   const today = formatDate();
 
-  // Use same colour palette as main card
-  const wrap = isDark
-    ? "border-zinc-800 bg-zinc-900"
-    : "border-zinc-200 bg-white";
-  const label = isDark ? "text-yellow-400" : "text-yellow-600";
-  const meta = isDark ? "text-zinc-500" : "text-zinc-500";
-  const text = isDark ? "text-zinc-200" : "text-zinc-700";
-  const badge = isDark
-    ? "border-zinc-700 text-zinc-400"
-    : "border-zinc-200 text-zinc-500";
-  const btn = isDark
-    ? "border-zinc-700 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200"
-    : "border-zinc-200 text-zinc-500 hover:border-zinc-300 hover:text-zinc-700";
-
   return (
-    <div
-      className={`w-full border rounded-xl p-5 transition-colors duration-300 ${wrap}`}
-    >
-      <div className="flex items-center justify-between mb-2">
+    <div className="rounded-xl border-2 border-ink bg-accent p-5 shadow-hard-sm">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center gap-2">
-          <span className={`text-xs font-sans font-semibold ${label}`}>
+          <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-accent-ink">
             ✦ excuse of the day
           </span>
-          <span className={`text-[10px] font-sans ${meta}`}>{today}</span>
+          <span className="font-mono text-[10px] uppercase tracking-wide text-accent-ink/70">
+            {today}
+          </span>
         </div>
         <div className="flex items-center gap-2">
-          <span
-            className={`text-[10px] font-sans px-2 py-0.5 rounded border ${badge}`}
-          >
+          <span className="rounded border-2 border-accent-ink/40 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-accent-ink">
             {eotd.situation}
           </span>
-          <span
-            className={`text-[10px] font-sans px-2 py-0.5 rounded border ${badge}`}
-          >
+          <span className="rounded border-2 border-accent-ink/40 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wide text-accent-ink">
             {eotd.tone}
           </span>
         </div>
       </div>
 
-      <p className={`font-sans text-sm leading-relaxed mb-3 ${text}`}>
-        <span className="text-emerald-400 mr-2">$</span>
+      <p className="flex items-start gap-2 font-serif text-xl italic leading-snug text-accent-ink">
+        <span className="select-none font-mono text-sm font-bold not-italic">
+          $
+        </span>
         {eotd.excuse}
       </p>
 
       <button
         onClick={() => onUse(eotd)}
-        className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${btn} flex items-center gap-1`}
+        className="mt-4 inline-flex cursor-pointer items-center gap-1.5 rounded-md border-2 border-accent-ink bg-accent px-3 py-1.5 font-mono text-[10px] font-bold uppercase tracking-wide text-accent-ink shadow-hard-sm transition-all hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none active:translate-x-[3px] active:translate-y-[3px]"
       >
-        use this excuse <BsArrowUpRight />
+        use this excuse <span aria-hidden>↗</span>
       </button>
     </div>
   );

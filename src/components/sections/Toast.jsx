@@ -12,17 +12,16 @@ export default function Toast({
     return () => clearTimeout(timer);
   }, [onClose, duration]);
 
-  const bgClass =
-    {
-      info: "bg-zinc-800",
-      success: "bg-emerald-600",
-      error: "bg-red-600",
-      warning: "bg-yellow-600",
-    }[type] || "bg-zinc-800";
+  const cls = {
+    info: "bg-ink text-paper",
+    success: "bg-accent text-accent-ink",
+    error: "bg-signal text-white",
+    warning: "bg-orange text-ink",
+  }[type] || "bg-ink text-paper";
 
   return (
     <div
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-60 px-4 py-2.5 rounded-lg shadow-lg text-white font-sans text-sm ${bgClass}`}
+      className={`fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-md border-2 border-ink px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wide shadow-hard ${cls}`}
     >
       {message}
     </div>

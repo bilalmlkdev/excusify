@@ -19,12 +19,27 @@ import Toast from "./components/sections/Toast";
 import HeaderButtons from "./components/layout/HeaderButtons";
 import { Loader } from "./components/ui/Loader";
 
+const TICKER = [
+  "bug still exists",
+  "missed deadline",
+  "prod went down",
+  "deploy failed",
+  "missed standup",
+  "pr not reviewed",
+  "professional",
+  "chaotic",
+  "desperate",
+  "corporate bs",
+];
+
 export default function App() {
   const { settings, toggleSetting, resetSettings } = useSettings();
   const isDark = settings.theme === "dark";
-  const { toast, showToast } = useToast();
+  const { toast, showToast, setToast } = useToast();
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(
+    () => !new URLSearchParams(window.location.search).has("preview"),
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800);
@@ -107,94 +122,92 @@ export default function App() {
     tabOpen,
   });
 
-  const bg = isDark ? "bg-zinc-950" : "bg-zinc-50";
-  const cardBg = isDark ? "bg-zinc-900" : "bg-white";
-  const cardBorder = isDark ? "border-zinc-800" : "border-zinc-200";
-  const textPrimary = isDark ? "text-zinc-100" : "text-zinc-900";
-  const textSecondary = isDark ? "text-zinc-400" : "text-zinc-600";
-  const btnPrimary = isDark
-    ? "bg-zinc-100 text-zinc-900 hover:bg-white"
-    : "bg-zinc-900 text-white hover:bg-zinc-800";
-  const hintPill = isDark
-    ? "border-zinc-700 text-zinc-400"
-    : "border-zinc-200 text-zinc-500";
-
   return (
     <div
-      className={`min-h-screen ${bg} transition-colors duration-500 font-sans selection:bg-emerald-500 selection:text-white dark:selection:bg-emerald-400 dark:selection:text-zinc-950`}
+      className={`h-screen overflow-x-clip lg:overflow-hidden bg-paper font-sans text-ink transition-colors duration-300 ${
+        isDark ? "theme-dark" : "theme-light"
+      }`}
     >
-      {isLoading && <Loader isDark={isDark} />}
+      {isLoading && <Loader />}
 
-      <div className="relative z-10 flex justify-center p-6 md:p-12 lg:p-16">
-        <div className="w-full max-w-[1200px] flex flex-col gap-8">
-          <Header
-            title="Excusify."
-            subtitle={`Because "I don't know" isn't always professional enough.`}
-            hints={
-              settings.showHints
-                ? [
-                    settings.keyboardShortcut && "Space to Generate",
-                    settings.autoCopy && "Auto-Copy On",
-                    settings.sound && "Sound On",
-                  ].filter(Boolean)
-                : null
-            }
-            isDark={isDark}
-            titleClass={textPrimary}
-            subtitleClass={textSecondary}
-            hintClass={hintPill}
-          >
-            <HeaderButtons
-              isDark={isDark}
-              onSettings={() => setPanelOpen(true)}
-              onHistory={() => setTabOpen("history")}
-              onFavorites={() => setTabOpen("favs")}
-              onAbout={() => setTabOpen("about")}
-              onKeyboardHelp={() => setShowKeyboardHelp(true)}
-              historyCount={history.length}
-              favoritesCount={favorites.length}
-            />
-          </Header>
-
-          <MainGrid
-            left={
-              <ControlsPanel
-                activeSit={activeSit}
-                activeTone={activeTone}
-                onSitChange={setActiveSit}
-                onToneChange={setActiveTone}
-                onGenerate={() => generate(activeSit, activeTone)}
-                isDark={isDark}
-                cardBg={cardBg}
-                cardBorder={cardBorder}
-                btnPrimary={btnPrimary}
-              />
-            }
-            right={
-              <OutputPanel
-                excuse={excuse}
-                situation={currentSituation}
-                tone={currentTone}
-                onCopy={handleCopy}
-                copied={copied}
-                onRate={handleRate}
-                rated={rated}
-                isFavorite={isFavorite}
-                onFavorite={() =>
-                  handleFavorite(excuse, currentSituation, currentTone)
-                }
-                isDark={isDark}
-                showEotd={settings.showEotd}
-                onUseEotd={handleUseEotd}
-                showCounter={settings.showCounter}
-                count={count}
-                textSecondary={textSecondary}
-              />
-            }
+      <div className="relative z-10 mx-auto flex w-full max-w-6xl flex-col gap-8 px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
+        <Header
+          title="Excusify."
+          subtitle={`Because "I don't know" isn't always professional enough.`}
+          hints={
+            settings.showHints
+              ? [
+                  settings.keyboardShortcut && "space to generate",
+                  settings.autoCopy && "auto-copy on",
+                  settings.sound && "sound on",
+                ].filter(Boolean)
+              : null
+          }
+        >
+          <HeaderButtons
+            onSettings={() => setPanelOpen(true)}
+            onHistory={() => setTabOpen("history")}
+            onFavorites={() => setTabOpen("favs")}
+            onAbout={() => setTabOpen("about")}
+            onKeyboardHelp={() => setShowKeyboardHelp(true)}
+            historyCount={history.length}
+            favoritesCount={favorites.length}
           />
+        </Header>
 
-          <FooterStats totalCount={totalCount} isDark={isDark} />
+        <div
+          aria-hidden
+          className="relative overflow-hidden rounded-lg border-2 border-ink bg-surface"
+        >
+          <div className="ticker-track flex w-max items-center py-2">
+            {[0, 1].map((key) => (
+              <span key={key} className="flex items-center">
+                {TICKER.map((word) => (
+                  <span
+                    key={word + key}
+                    className="mx-5 inline-flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.18em] text-ink2"
+                  >
+                    {word}
+                    <span className="text-accent">▪</span>
+                  </span>
+                ))}
+              </span>
+            ))}
+          </div>
         </div>
+
+        <MainGrid
+          left={
+            <ControlsPanel
+              activeSit={activeSit}
+              activeTone={activeTone}
+              onSitChange={setActiveSit}
+              onToneChange={setActiveTone}
+              onGenerate={() => generate(activeSit, activeTone)}
+            />
+          }
+          right={
+            <OutputPanel
+              excuse={excuse}
+              situation={currentSituation}
+              tone={currentTone}
+              onCopy={handleCopy}
+              copied={copied}
+              onRate={handleRate}
+              rated={rated}
+              isFavorite={isFavorite}
+              onFavorite={() =>
+                handleFavorite(excuse, currentSituation, currentTone)
+              }
+              showEotd={settings.showEotd}
+              onUseEotd={handleUseEotd}
+              showCounter={settings.showCounter}
+              count={count}
+            />
+          }
+        />
+
+        <FooterStats totalCount={totalCount} />
       </div>
 
       <SettingsPanel
@@ -222,7 +235,6 @@ export default function App() {
         open={tabOpen}
         onClose={() => setTabOpen(null)}
         tab={tabOpen}
-        isDark={isDark}
         favorites={favorites}
         onClearFavorites={() => setFavorites([])}
         history={history}
@@ -233,7 +245,6 @@ export default function App() {
       <KeyboardHelpModal
         open={showKeyboardHelp}
         onClose={() => setShowKeyboardHelp(false)}
-        isDark={isDark}
       />
 
       {toast && (

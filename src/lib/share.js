@@ -21,7 +21,7 @@ export function copyToClipboard(text) {
  * Share on Twitter
  */
 export function shareToTwitter(excuse, situation, tone) {
-  const text = encodeURIComponent(`${excuse} — ${situation} (${tone})`);
+  const text = encodeURIComponent(`${excuse} - ${situation} (${tone})`);
   const url = encodeURIComponent("https://excusify.vercel.app");
   window.open(
     `https://twitter.com/intent/tweet?text=${text}&url=${url}`,
@@ -34,7 +34,7 @@ export function shareToTwitter(excuse, situation, tone) {
  */
 export function shareToLinkedIn(excuse, situation) {
   const url = encodeURIComponent("https://excusify.vercel.app");
-  const title = encodeURIComponent(`${situation} — Excuse`);
+  const title = encodeURIComponent(`${situation} - Excuse`);
   const summary = encodeURIComponent(excuse);
   window.open(
     `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}&summary=${summary}`,

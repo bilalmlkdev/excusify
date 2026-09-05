@@ -1,10 +1,10 @@
 // src/components/sections/AboutTab.jsx
 import { useEffect } from "react";
-import { Code, Heart, Zap, CheckCircle, Box } from "lucide-react";
+import { Code, Zap, CheckCircle } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-export default function AboutTab({ isDark, totalCount, onClose }) {
+export default function AboutTab({ totalCount, onClose }) {
   useEffect(() => {
     if (!onClose) return;
     function handleKey(e) {
@@ -14,110 +14,90 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
     return () => window.removeEventListener("keydown", handleKey);
   }, [onClose]);
 
-  // Theme-aware classes – compact & crisp
-  const textPrimary = isDark ? "text-white" : "text-zinc-900";
-  const textSecondary = isDark ? "text-zinc-400" : "text-zinc-600";
-  const textMuted = isDark ? "text-zinc-600" : "text-zinc-400";
-  const cardBg = isDark ? "bg-zinc-900/60" : "bg-white/60";
-  const borderCl = isDark ? "border-zinc-800" : "border-zinc-200";
-
   const stats = [
-    { label: "Version", value: "0.0.1" },
+    { label: "version", value: "0.0.1" },
     {
-      label: "Status",
-      value: "Complete",
-      accent: "text-emerald-500",
-      icon: <CheckCircle className="w-3 h-3" />,
+      label: "status",
+      value: "complete",
+      accent: "text-accent",
+      icon: <CheckCircle className="h-3 w-3" />,
     },
-    { label: "Situations", value: "6" },
-    { label: "Tones", value: "4" },
-    { label: "Excuses", value: "72 built-in" },
-    { label: "Deployed on", value: "Vercel" },
-    { label: "License", value: "MIT" },
+    { label: "situations", value: "6" },
+    { label: "tones", value: "4" },
+    { label: "excuses", value: "72 built-in" },
+    { label: "deployed on", value: "vercel" },
+    { label: "license", value: "MIT" },
     {
-      label: "All-time",
+      label: "all-time",
       value: totalCount?.toLocaleString() ?? "0",
-      accent: "text-emerald-500",
+      accent: "text-accent",
     },
   ];
 
   const author = [
     {
-      label: "Built by",
+      label: "built by",
       value: "Bilal Malik",
       href: "https://bilalmlkdev.vercel.app/",
-      icon: <Code className="w-3 h-3" />,
+      icon: <Code className="h-3 w-3" />,
     },
     {
-      label: "GitHub",
+      label: "github",
       value: "@bilalmlkdev",
       href: "https://github.com/bilalmlkdev",
-      accent: "text-emerald-500",
-      icon: <FaGithub className="w-3 h-3" />,
+      icon: <FaGithub className="h-3 w-3" />,
     },
     {
-      label: "LinkedIn",
+      label: "linkedin",
       value: "Bilal Malik",
       href: "https://linkedin.com/in/bilalmlkdev",
-      accent: "text-emerald-500",
-      icon: <FaLinkedin className="w-3 h-3" />,
+      icon: <FaLinkedin className="h-3 w-3" />,
     },
     {
-      label: "Twitter",
+      label: "twitter",
       value: "bilalmlkdev",
       href: "https://twitter.com/bilalmlkdev",
-      accent: "text-emerald-500",
-      icon: <FaXTwitter className="w-3 h-3" />,
+      icon: <FaXTwitter className="h-3 w-3" />,
     },
   ];
 
   return (
-    <div className="space-y-4">
-      {/* Compact header */}
-      <div className="flex items-center gap-3 mb-2">
-        <div className="flex items-center gap-2">
-          <Box
-            className={`w-5 h-5 ${isDark ? "text-emerald-400" : "text-emerald-600"}`}
-          />
-          <h1 className={`text-2xl font-bold tracking-tight ${textPrimary}`}>
+    <div className="space-y-5">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-ink bg-accent font-mono text-lg font-bold text-accent-ink shadow-hard-sm">
+          ?
+        </div>
+        <div>
+          <h1 className="text-2xl font-bold tracking-tight text-ink">
             excusify
           </h1>
+          <p className="font-mono text-[10px] text-muted">
+            // because "i don't know" isn't always professional enough
+          </p>
         </div>
-        <span
-          className={`text-[10px] font-mono px-2 py-0.5 rounded-full border ${isDark ? "border-zinc-700 text-zinc-400" : "border-zinc-300 text-zinc-500"}`}
-        >
+        <span className="ml-auto rounded border-2 border-line px-1.5 py-0.5 font-mono text-[10px] font-bold text-ink2">
           v0.0.1
         </span>
       </div>
-      <p className={`text-xs font-mono ${textSecondary} -mt-1`}>
-        // because "i don't know" isn't always professional enough
-      </p>
 
-      {/* Stats grid – 2 columns on larger screens, 1 on mobile */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div
-          className={`rounded-xl border ${borderCl} ${cardBg} backdrop-blur-sm p-3 shadow-sm`}
-        >
-          <div className="flex items-center gap-1.5 mb-2">
-            <Zap className={`w-3.5 h-3.5 ${textMuted}`} />
-            <span
-              className={`text-[10px] font-semibold uppercase tracking-wider ${textMuted}`}
-            >
-              Stats
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="rounded-lg border-2 border-ink bg-surface p-4 shadow-hard-sm">
+          <div className="mb-2.5 flex items-center gap-1.5">
+            <Zap className="h-3.5 w-3.5 text-accent" />
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
+              stats
             </span>
           </div>
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             {stats.map((item, i) => (
               <div
                 key={i}
-                className="flex items-center justify-between text-[11px]"
+                className="flex items-center justify-between font-mono text-[11px]"
               >
-                <span className={isDark ? "text-zinc-500" : "text-zinc-500"}>
-                  {item.label}
-                </span>
+                <span className="text-muted">{item.label}</span>
                 <div className="flex items-center gap-1.5">
                   <span
-                    className={`font-medium ${item.accent || (isDark ? "text-zinc-200" : "text-zinc-700")}`}
+                    className={`font-bold ${item.accent || "text-ink2"}`}
                   >
                     {item.value}
                   </span>
@@ -128,18 +108,14 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
           </div>
         </div>
 
-        <div
-          className={`rounded-xl border ${borderCl} ${cardBg} backdrop-blur-sm p-3 shadow-sm`}
-        >
-          <div className="flex items-center gap-1.5 mb-2">
-            <Heart className={`w-3.5 h-3.5 ${textMuted}`} />
-            <span
-              className={`text-[10px] font-semibold uppercase tracking-wider ${textMuted}`}
-            >
-              Author
+        <div className="rounded-lg border-2 border-ink bg-surface p-4 shadow-hard-sm">
+          <div className="mb-2.5 flex items-center gap-1.5">
+            <span className="text-accent">♥</span>
+            <span className="font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-muted">
+              author
             </span>
           </div>
-          <div className="space-y-1.5">
+          <div className="space-y-2">
             {author.map((item, i) => {
               const Row = item.href ? "a" : "div";
               const rowProps = item.href
@@ -153,21 +129,15 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
                 <Row
                   key={i}
                   {...rowProps}
-                  className={`flex items-center justify-between text-[11px] transition-colors ${
+                  className={`flex items-center justify-between font-mono text-[11px] transition-colors ${
                     item.href
-                      ? `cursor-pointer hover:bg-zinc-800/20 dark:hover:bg-zinc-800/40 rounded px-1 -mx-1`
+                      ? "cursor-pointer rounded px-1 -mx-1 hover:bg-surface2"
                       : ""
                   }`}
                 >
-                  <span className={isDark ? "text-zinc-500" : "text-zinc-500"}>
-                    {item.label}
-                  </span>
+                  <span className="text-muted">{item.label}</span>
                   <div className="flex items-center gap-1.5">
-                    <span
-                      className={`font-medium ${item.accent || (isDark ? "text-zinc-200" : "text-zinc-700")}`}
-                    >
-                      {item.value}
-                    </span>
+                    <span className="font-bold text-ink2">{item.value}</span>
                     {item.icon}
                   </div>
                 </Row>

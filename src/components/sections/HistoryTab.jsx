@@ -1,12 +1,7 @@
 // src/components/sections/HistoryTab.jsx
 import { useEffect, useState } from "react";
 
-export default function HistoryTab({
-  history,
-  onClearHistory,
-  isDark,
-  onClose,
-}) {
+export default function HistoryTab({ history, onClearHistory, onClose }) {
   const DEFAULT_SHOW = 10;
   const [showAll, setShowAll] = useState(false);
   const [copiedIndex, setCopiedIndex] = useState(null);
@@ -26,18 +21,17 @@ export default function HistoryTab({
     setTimeout(() => setCopiedIndex(null), 2000);
   };
 
+  const smallBtn =
+    "cursor-pointer rounded-md border-2 border-line bg-surface px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide text-muted transition-all hover:border-ink hover:text-ink";
+
   return (
     <div className="w-full">
-      <div className="flex items-center justify-between mb-4">
+      <div className="mb-4 flex items-center justify-between gap-2">
         <div>
-          <p
-            className={`text-xs font-sans font-semibold uppercase tracking-wider ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
-          >
-            Recent
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-muted">
+            recent
           </p>
-          <p
-            className={`text-[10px] font-sans ${isDark ? "text-zinc-600" : "text-zinc-400"}`}
-          >
+          <p className="mt-0.5 font-mono text-[10px] text-muted">
             {history.length} items{" "}
             {history.length > DEFAULT_SHOW &&
               !showAll &&
@@ -46,65 +40,45 @@ export default function HistoryTab({
         </div>
         <div className="flex items-center gap-2">
           {history.length > 0 && (
-            <button
-              onClick={onClearHistory}
-              className={`text-xs font-sans px-3 py-1 rounded-lg border transition-all cursor-pointer ${isDark ? "border-zinc-700 text-zinc-400 hover:text-zinc-200" : "border-zinc-200 text-zinc-600 hover:text-zinc-800"}`}
-            >
-              Clear
+            <button onClick={onClearHistory} className={smallBtn}>
+              clear
             </button>
           )}
           {history.length > DEFAULT_SHOW && (
-            <button
-              onClick={() => setShowAll((s) => !s)}
-              className={`text-xs font-sans px-3 py-1 rounded-lg border transition-all cursor-pointer ${isDark ? "border-zinc-700 text-zinc-400 hover:text-zinc-200" : "border-zinc-200 text-zinc-600 hover:text-zinc-800"}`}
-            >
-              {showAll ? "Show recent" : "Show all"}
+            <button onClick={() => setShowAll((s) => !s)} className={smallBtn}>
+              {showAll ? "show recent" : "show all"}
             </button>
           )}
-          {/* {onClose && (
-            <button
-              onClick={onClose}
-              className={`text-xs font-sans px-2 py-1 rounded-lg border ${isDark ? "border-zinc-700 text-zinc-400" : "border-zinc-200 text-zinc-600"}`}
-            >
-              Close
-            </button>
-          )} */}
         </div>
       </div>
 
       {history.length === 0 ? (
-        <div
-          className={`py-12 text-center text-sm font-sans ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
-        >
-          No excuses generated yet
+        <div className="py-12 text-center font-mono text-xs text-muted">
+          no excuses generated yet
         </div>
       ) : (
-        <div className="max-h-[60vh] overflow-y-auto space-y-3 pr-2">
+        <div className="max-h-[60vh] space-y-2.5 overflow-y-auto pr-1">
           {(showAll ? history : history.slice(0, DEFAULT_SHOW)).map(
             (item, i) => (
               <div
                 key={i}
-                className={`p-3 rounded-xl border ${isDark ? "bg-zinc-800/40 border-zinc-700" : "bg-white border-zinc-100"}`}
+                className="rounded-md border-2 border-line bg-surface p-3"
               >
-                <p
-                  className={`text-sm font-sans ${isDark ? "text-zinc-200" : "text-zinc-700"}`}
-                >
+                <p className="font-serif text-[15px] italic leading-snug text-ink">
                   {item.excuse}
                 </p>
-                <div
-                  className={`mt-2 flex items-center justify-between text-[11px] ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
-                >
+                <div className="mt-2 flex items-center justify-between gap-2 font-mono text-[10px] uppercase tracking-wide text-muted">
                   <span className="truncate">
                     {item.situation} · {item.tone}
                   </span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleCopy(item.excuse, i)}
-                      className="text-[11px] px-2 py-0.5 rounded border text-zinc-500 hover:bg-zinc-100"
-                    >
-                      {copiedIndex === i ? "Copied!" : "Copy"}
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => handleCopy(item.excuse, i)}
+                    className={`flex-shrink-0 cursor-pointer rounded border-2 border-line bg-surface2 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-ink2 transition-all hover:border-ink hover:text-ink ${
+                      copiedIndex === i ? "border-ink bg-accent text-accent-ink" : ""
+                    }`}
+                  >
+                    {copiedIndex === i ? "copied!" : "copy"}
+                  </button>
                 </div>
               </div>
             ),

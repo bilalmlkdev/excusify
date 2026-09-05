@@ -1,55 +1,41 @@
 // src/components/pickers/TonePicker.jsx
-import { useMemo } from "react";
 import { tones } from "../../data/tones";
 
-export default function TonePicker({ active, onChange, isDark }) {
-  const toneColors = useMemo(
-    () => ({
-      professional:
-        active === "professional"
-          ? "border-sky-400 bg-sky-400/10 text-sky-400"
-          : "",
-      chaotic:
-        active === "chaotic"
-          ? "border-orange-400 bg-orange-400/10 text-orange-400"
-          : "",
-      desperate:
-        active === "desperate"
-          ? "border-red-400 bg-red-400/10 text-red-400"
-          : "",
-      corporate:
-        active === "corporate"
-          ? "border-violet-400 bg-violet-400/10 text-violet-400"
-          : "",
-    }),
-    [active],
-  );
+const TONE_COLOR = {
+  professional: { bg: "bg-sky", text: "text-ink" },
+  chaotic: { bg: "bg-orange", text: "text-ink" },
+  desperate: { bg: "bg-signal", text: "text-white" },
+  corporate: { bg: "bg-violet", text: "text-white" },
+};
 
-  const inactiveClass = isDark
-    ? "border-zinc-700 bg-zinc-900 text-zinc-400 hover:border-zinc-500 hover:text-zinc-200"
-    : "border-zinc-300 bg-white text-zinc-500 hover:border-zinc-400 hover:text-zinc-700";
-
+export default function TonePicker({ active, onChange }) {
   return (
     <div>
-      <p
-        className={`text-xs font-sans font-semibold uppercase tracking-widest mb-3
-        ${isDark ? "text-zinc-500" : "text-zinc-400"}`}
-      >
-        // tone
+      <p className="mb-3 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.22em] text-muted">
+        <span className="flex h-4 w-4 items-center justify-center rounded-sm border-2 border-line bg-surface2 text-[8px] text-ink2">
+          02
+        </span>
+        tone
       </p>
       <div className="flex flex-wrap gap-2">
-        {tones.map((tone) => (
-          <button
-            key={tone.id}
-            onClick={() => onChange(tone.id)}
-            className={`
-              px-4 py-1.5 rounded-full text-sm font-sans border transition-all duration-150 cursor-pointer
-              ${toneColors[tone.id] || inactiveClass}
-            `}
-          >
-            {tone.label}
-          </button>
-        ))}
+        {tones.map((tone) => {
+          const isActive = active === tone.id;
+          const c = TONE_COLOR[tone.id];
+          return (
+            <button
+              key={tone.id}
+              onClick={() => onChange(tone.id)}
+              aria-pressed={isActive}
+              className={`cursor-pointer rounded-lg border-2 px-3.5 py-2 font-mono text-[11px] font-medium uppercase tracking-wide transition-all ${
+                isActive
+                  ? `${c.bg} ${c.text} border-ink shadow-hard-sm`
+                  : "border-line bg-surface text-ink2 hover:border-ink hover:text-ink"
+              }`}
+            >
+              {tone.label}
+            </button>
+          );
+        })}
       </div>
     </div>
   );

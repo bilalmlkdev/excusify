@@ -2,20 +2,18 @@
 import { memo } from "react";
 import { IconStar } from "../../ui/Icons";
 
-export  const FavoriteButton = memo(({ isFavorite, onToggle, isDark }) => {
+export const FavoriteButton = memo(({ isFavorite, onToggle }) => {
   return (
     <button
       onClick={onToggle}
       title={isFavorite ? "unfavorite" : "save to favorites"}
-      className={`shrink-0 transition-all cursor-pointer mt-0.5 flex items-center justify-center ${
+      className={`flex h-9 w-9 flex-shrink-0 cursor-pointer items-center justify-center rounded-md border-2 transition-all active:translate-y-[1px] ${
         isFavorite
-          ? "text-yellow-400"
-          : isDark
-            ? "text-zinc-700 hover:text-yellow-400"
-            : "text-zinc-300 hover:text-yellow-500"
+          ? "border-ink bg-accent text-accent-ink shadow-hard-sm"
+          : "border-line bg-surface text-muted hover:border-ink hover:text-ink"
       }`}
     >
-      <IconStar filled={isFavorite} className="w-5 h-5" />
+      <IconStar filled={isFavorite} className="h-4 w-4" />
     </button>
   );
 });

@@ -8,38 +8,24 @@ export function ControlsPanel({
   onSitChange,
   onToneChange,
   onGenerate,
-  isDark,
 }) {
-  // Refined theme classes (same as in App.jsx)
-  const cardBg = isDark ? "bg-zinc-900" : "bg-white";
-  const cardBorder = isDark ? "border-zinc-800" : "border-zinc-200";
-  const btnPrimary = isDark
-    ? "bg-zinc-100 text-zinc-900 hover:bg-white"
-    : "bg-zinc-900 text-white hover:bg-zinc-800";
-
   return (
-    <div
-      className={`border ${cardBorder} rounded-2xl ${cardBg} p-6 lg:p-8 space-y-6 shadow-sm transition-colors duration-500`}
-    >
-      <div id="situation-picker" className="focus:outline-none">
-        <SituationPicker
-          active={activeSit}
-          onChange={onSitChange}
-          isDark={isDark}
-        />
+    <div className="space-y-7 rounded-xl border-2 border-ink bg-surface p-6 shadow-hard lg:p-8">
+      <div id="situation-picker" className="outline-none">
+        <SituationPicker active={activeSit} onChange={onSitChange} />
       </div>
-      <div id="tone-picker" className="focus:outline-none">
-        <TonePicker
-          active={activeTone}
-          onChange={onToneChange}
-          isDark={isDark}
-        />
+      <div id="tone-picker" className="outline-none">
+        <TonePicker active={activeTone} onChange={onToneChange} />
       </div>
       <button
         onClick={onGenerate}
-        className={`w-full mt-4 py-4 rounded-xl font-sans tracking-wide font-medium uppercase text-sm transition-all duration-300 shadow-sm hover:shadow-md active:scale-[0.98] ${btnPrimary}`}
+        className="group flex w-full cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-ink bg-accent px-6 py-4 font-mono text-sm font-bold uppercase tracking-[0.14em] text-accent-ink shadow-hard transition-all hover:translate-x-[3px] hover:translate-y-[3px] hover:shadow-none active:translate-x-[4px] active:translate-y-[4px]"
       >
-        Generate Excuse
+        <span className="inline-block h-2 w-2 rounded-full bg-accent-ink/80 transition-transform group-hover:scale-125" />
+        Generate excuse
+        <span aria-hidden className="font-sans text-base leading-none">
+          →
+        </span>
       </button>
     </div>
   );

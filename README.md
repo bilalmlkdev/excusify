@@ -7,7 +7,7 @@
 # Excusify
 
  Excuse generator for developers, teams, and anyone who needs a quick, professional-sounding reason.<br>Choose from six situations, four tones, and generate the perfect excuse in seconds, right in your browser.
- 
+
 [![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-black?style=for-the-badge)](https://excusify.vercel.app)
 [![GitHub Stars](https://img.shields.io/github/stars/bilalmlkdev/excusify?style=for-the-badge&logo=github&color=yellow)](https://github.com/bilalmlkdev/excusify.git)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
@@ -137,23 +137,23 @@ Once added, the new excuses automatically become available throughout the applic
 
 ```text
 excusify
-├── public
-├── src
-│   ├── components
-│   │   ├── layout
-│   │   ├── modals
-│   │   ├── pickers
-│   │   ├── sections
-│   │   └── ui
-│   ├── data
-│   ├── hooks
-│   ├── lib
-│   ├── utils
-│   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── package.json
-└── vite.config.js
+├-- public
+├-- src
+│   ├-- components
+│   │   ├-- layout
+│   │   ├-- modals
+│   │   ├-- pickers
+│   │   ├-- sections
+│   │   └-- ui
+│   ├-- data
+│   ├-- hooks
+│   ├-- lib
+│   ├-- utils
+│   ├-- App.jsx
+│   ├-- main.jsx
+│   └-- index.css
+├-- package.json
+└-- vite.config.js
 ```
 # Performance
 

@@ -10,43 +10,29 @@ export const ExcuseShareOptions = memo(
     onTwitterShare,
     onLinkedInShare,
     onWhatsAppShare,
-    isDark,
   }) => {
-    const inactiveBtn = isDark
-      ? "border-zinc-700 text-zinc-500 hover:border-zinc-500 hover:text-zinc-300"
-      : "border-zinc-200 text-zinc-500 hover:border-zinc-300 hover:text-zinc-700";
+    const btn =
+      "inline-flex cursor-pointer items-center gap-1.5 rounded-md border-2 border-line bg-surface px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wide text-muted transition-all hover:border-ink hover:text-ink hover:shadow-hard-sm active:translate-x-[2px] active:translate-y-[2px] active:shadow-none";
 
     return (
       <div className="flex flex-wrap gap-2">
-        <button
-          onClick={onSaveImage}
-          className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${inactiveBtn} flex items-center gap-2`}
-        >
-          <IconDownload className="w-3.5 h-3.5" /> save image
+        <button onClick={onSaveImage} className={btn}>
+          <IconDownload className="h-3 w-3" /> save image
         </button>
-        <button
-          onClick={onSlackBlock}
-          className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${inactiveBtn} flex items-center gap-2`}
-        >
+        <button onClick={onSlackBlock} className={btn}>
           slack block
         </button>
-        <button
-          onClick={onSlackShare}
-          className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${inactiveBtn} flex items-center gap-2`}
-        >
-          <IconTwitter className="w-3.5 h-3.5" /> twitter
+        <button onClick={onSlackShare} className={btn}>
+          slack
         </button>
-        <button
-          onClick={onLinkedInShare}
-          className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${inactiveBtn} flex items-center gap-2`}
-        >
-          <IconLinkedIn className="w-3.5 h-3.5" /> linkedin
+        <button onClick={onTwitterShare} className={btn}>
+          <IconTwitter className="h-3 w-3" /> twitter
         </button>
-        <button
-          onClick={onWhatsAppShare}
-          className={`text-xs font-sans px-3 py-1 rounded-md border transition-all cursor-pointer ${inactiveBtn} flex items-center gap-2`}
-        >
-          <IconDownload className="w-3.5 h-3.5" /> whatsapp
+        <button onClick={onLinkedInShare} className={btn}>
+          <IconLinkedIn className="h-3 w-3" /> linkedin
+        </button>
+        <button onClick={onWhatsAppShare} className={btn}>
+          whatsapp
         </button>
       </div>
     );

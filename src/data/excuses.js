@@ -3,7 +3,7 @@ export const excuses = {
     professional: [
       "The issue has been identified and a fix is in progress. It involves an edge case with state management that only manifests under specific race conditions.",
       "This is a known regression introduced in the last sprint. We're prioritizing it for the next patch release.",
-      "Root cause analysis is complete — it's a timing issue in the async pipeline. We're implementing a mutex pattern.",
+      "Root cause analysis is complete - it's a timing issue in the async pipeline. We're implementing a mutex pattern.",
     ],
     chaotic: [
       "It works on my machine and my machine is the source of truth.",
@@ -46,7 +46,7 @@ export const excuses = {
   "prod went down": {
     professional: [
       "A config value in the environment variables was overridden during the last deployment. It's been reverted.",
-      "The load balancer health checks were misconfigured — traffic was routed to a terminated instance.",
+      "The load balancer health checks were misconfigured - traffic was routed to a terminated instance.",
       "A database index was accidentally dropped during a migration. We've restored from the latest snapshot.",
     ],
     chaotic: [
@@ -67,7 +67,7 @@ export const excuses = {
   },
   "deploy failed": {
     professional: [
-      "The CI pipeline failed on a flaky integration test — we're re-running after a brief hold.",
+      "The CI pipeline failed on a flaky integration test - we're re-running after a brief hold.",
       "A required environment secret wasn't rotated in the deployment target. It's being updated now.",
       "The container image build exceeded the memory threshold. We're optimizing the Dockerfile.",
     ],
@@ -89,9 +89,9 @@ export const excuses = {
   },
   "missed standup": {
     professional: [
-      "I had a conflicting incident response call that took priority — I've already caught up on the notes.",
+      "I had a conflicting incident response call that took priority - I've already caught up on the notes.",
       "The calendar invite was in a timezone that doesn't observe DST. I've corrected my calendar settings.",
-      "I was on a client call that ran over — I've synced with the team asynchronously.",
+      "I was on a client call that ran over - I've synced with the team asynchronously.",
     ],
     chaotic: [
       "My laptop was doing that thing where it updates for 40 minutes despite saying '1 minute remaining'.",
@@ -105,13 +105,13 @@ export const excuses = {
     ],
     corporate: [
       "I was engaged in a high-priority deliverable and was unable to context-switch to the synchronous touchpoint.",
-      "My attendance was impacted by a competing strategic obligation — I've reviewed the meeting notes.",
+      "My attendance was impacted by a competing strategic obligation - I've reviewed the meeting notes.",
       "I proactively reviewed the standup summary and am fully aligned with the team's action items.",
     ],
   },
   "pr not reviewed": {
     professional: [
-      "The PR is complex and requires input from two teams — we're scheduling a sync to align before merging.",
+      "The PR is complex and requires input from two teams - we're scheduling a sync to align before merging.",
       "It's blocked on a dependency that's currently in review upstream.",
       "The reviewers flagged an architectural concern that we're evaluating before moving forward.",
     ],
@@ -128,7 +128,7 @@ export const excuses = {
     corporate: [
       "The change request is progressing through our multi-stakeholder review and approval workflow.",
       "We're ensuring thorough due diligence on this PR to maintain our engineering quality standards.",
-      "The review cycle is ongoing — we're aligning on technical direction before proceeding to merge.",
+      "The review cycle is ongoing - we're aligning on technical direction before proceeding to merge.",
     ],
   },
 };
