@@ -1,12 +1,6 @@
 // src/components/sections/AboutTab.jsx
 import { useEffect } from "react";
-import {
-  Code,
-  Heart,
-  Zap,
-  CheckCircle,
-  Box,
-} from "lucide-react";
+import { Code, Heart, Zap, CheckCircle, Box } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -26,7 +20,6 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
   const textMuted = isDark ? "text-zinc-600" : "text-zinc-400";
   const cardBg = isDark ? "bg-zinc-900/60" : "bg-white/60";
   const borderCl = isDark ? "border-zinc-800" : "border-zinc-200";
-  // const divider = isDark ? "divide-zinc-800" : "divide-zinc-200";
 
   const stats = [
     { label: "Version", value: "0.0.1" },
@@ -52,13 +45,13 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
     {
       label: "Built by",
       value: "Bilal Malik",
-      href: "https://bilalmlkdev.verce.app/",
+      href: "https://bilalmlkdev.vercel.app/",
       icon: <Code className="w-3 h-3" />,
     },
     {
       label: "GitHub",
-      value: "@byllzz",
-      href: "https://github.com/byllzz",
+      value: "@bilalmlkdev",
+      href: "https://github.com/bilalmlkdev",
       accent: "text-emerald-500",
       icon: <FaGithub className="w-3 h-3" />,
     },
@@ -67,7 +60,7 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
       value: "Bilal Malik",
       href: "https://linkedin.com/in/bilalmlkdev",
       accent: "text-emerald-500",
-      icon: <FaLinkedin className="w-3 h-3" />,
+      icon: <FaLinkedIn className="w-3 h-3" />,
     },
     {
       label: "Twitter",

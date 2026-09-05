@@ -16,7 +16,6 @@ import {
 import QuickTabModal from "./components/modals/QuickTabModal";
 import KeyboardHelpModal from "./components/modals/KeyboardHelpModal";
 import Toast from "./components/sections/Toast";
-import PixelBlast from "./components/backgrounds/PixelBlast";
 import HeaderButtons from "./components/layout/HeaderButtons";
 import { Loader } from "./components/ui/Loader";
 
@@ -25,7 +24,6 @@ export default function App() {
   const isDark = settings.theme === "dark";
   const { toast, showToast } = useToast();
 
-  //  Loader state
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -33,7 +31,6 @@ export default function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  //  Core state
   const [activeSit, setActiveSit] = useState(() => {
     const fromUrl = readUrlParams();
     const saved = settings.localStorage ? load(LS_KEY, null) : null;
@@ -70,7 +67,6 @@ export default function App() {
     setCount,
   } = useExcuseGenerator(settings, showToast);
 
-  // Restore excuse from saved state or URL on first load
   useEffect(() => {
     const fromUrl = readUrlParams();
     const saved = settings.localStorage ? load(LS_KEY, null) : null;
@@ -111,7 +107,6 @@ export default function App() {
     tabOpen,
   });
 
-  //  Refined Theme Classes
   const bg = isDark ? "bg-zinc-950" : "bg-zinc-50";
   const cardBg = isDark ? "bg-zinc-900" : "bg-white";
   const cardBorder = isDark ? "border-zinc-800" : "border-zinc-200";
@@ -128,33 +123,8 @@ export default function App() {
     <div
       className={`min-h-screen ${bg} transition-colors duration-500 font-sans selection:bg-emerald-500 selection:text-white dark:selection:bg-emerald-400 dark:selection:text-zinc-950`}
     >
-      {/* Loader overlay  above everything */}
       {isLoading && <Loader isDark={isDark} />}
 
-      {/* Background -fixed , full screen, behind everything */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-         <PixelBlast
-    variant="square"
-    pixelSize={4}
-    color="#B497CF"
-    patternScale={2}
-    patternDensity={1}
-    pixelSizeJitter={0}
-    enableRipples
-    rippleSpeed={0.4}
-    rippleThickness={0.12}
-    rippleIntensityScale={1.5}
-    liquid={false}
-    liquidStrength={0.12}
-    liquidRadius={1.2}
-    liquidWobbleSpeed={5}
-    speed={0.5}
-    edgeFade={0.25}
-    transparent
-  />
-      </div>
-
-      {/* Main content – above background */}
       <div className="relative z-10 flex justify-center p-6 md:p-12 lg:p-16">
         <div className="w-full max-w-[1200px] flex flex-col gap-8">
           <Header
@@ -223,7 +193,7 @@ export default function App() {
             }
           />
 
-         <FooterStats totalCount={totalCount} isDark={isDark} />
+          <FooterStats totalCount={totalCount} isDark={isDark} />
         </div>
       </div>
 

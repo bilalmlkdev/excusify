@@ -12,18 +12,16 @@
   "dependencies": {
     "html2canvas": "^1.4.1",
     "lucide-react": "^1.14.0",
-    "postprocessing": "^6.39.4",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "react-icons": "^5.6.0",
-    "three": "^0.185.1"
+    "react-icons": "^5.6.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/byllzz/excusify.git"
+    "url": "https://github.com/bilalmlkdev/excusify.git"
   },
   "excusify": {
-    "repo": "byllzz/excusify"
+    "repo": "bilalmlkdev/excusify"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

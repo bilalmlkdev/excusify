@@ -1,31 +1,25 @@
-<p align="center">
+<div align="center">
+
   <a href="https://excusify.vercel.app/">
-    <img src="./src/assets/preview.png" alt="Excusify Preview">
+    <img src="https://raw.githubusercontent.com/bilalmlkdev/excusify/main/src/assets/favicon.svg" alt="excusify Logo" width="100%" height="120">
   </a>
-</p>
 
-<h1 align="center">Excusify</h1>
+# Excusify
 
-<p align="center">
-  A modern, open-source excuse generator for developers, teams, and anyone who needs a quick, professional-sounding reason. Choose from six situations, four tones, and generate the perfect excuse in seconds, right in your browser.
-</p>
+ Excuse generator for developers, teams, and anyone who needs a quick, professional-sounding reason.<br>Choose from six situations, four tones, and generate the perfect excuse in seconds, right in your browser.
+ 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Site-black?style=for-the-badge)](https://excusify.vercel.app)
+[![GitHub Stars](https://img.shields.io/github/stars/bilalmlkdev/excusify?style=for-the-badge&logo=github&color=yellow)](https://github.com/bilalmlkdev/excusify.git)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](./LICENSE)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Status-Complete-9B26FF?style=flat"/>
-  <img src="https://img.shields.io/badge/React-Vite-9B26FF?style=flat"/>
-  <img src="https://img.shields.io/badge/Tailwind-v4-9B26FF?style=flat"/>
-  <img src="https://img.shields.io/badge/JavaScript-ES6+-9B26FF?style=flat"/>
-  <img src="https://img.shields.io/badge/License-MIT-9B26FF?style=flat"/>
-  <img src="https://img.shields.io/badge/Deploy-Vercel-9B26FF?style=flat"/>
-</p>
+</div>
 
 <p align="center">
-  <a href="https://excusify.vercel.app/">Live Demo</a>
-  •
-  <a href="https://github.com/byllzz/excusify/issues/new">Report Bug</a>
-  •
-  <a href="https://github.com/byllzz/excusify/issues/new">Request Feature</a>
+  <i>Created by <a href="https://bilalmlkdev.vercel.app" target="_blank">Bilal Malik</a></i><br>
+  <i>Follow on Github <a href="https://github.com/bilalmlkdev" target="_blank">bilalmlkdev</a></i>
 </p>
+
+[![excusify Dashboard](https://raw.githubusercontent.com/bilalmlkdev/excusify/main/src/assets/preview.png)](https://excusify.vercel.app/)
 
 
 # About Excusify
@@ -209,7 +203,7 @@ Before getting started, make sure you have the following installed:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/byllzz/excusify.git
+git clone https://github.com/bilalmlkdev/excusify.git
 ```
 
 ### 2. Navigate to the project
@@ -284,29 +278,6 @@ Once completed, the new excuses automatically become available throughout the ap
 
 ---
 
-# Author
-
-<p align="left">
-  <img src="https://github.com/byllzz.png" width="90" alt="Bilal Malik"  />
-</p>
-
-<h3 align="left">Bilal Malik</h3>
-
-<p align="left">
-
-[![GitHub](https://img.shields.io/badge/GitHub-byllzz-9B72FF?style=flat&logo=github&logoColor=white)](https://github.com/byllzz)
-[![X](https://img.shields.io/badge/Twitter-@bilalmlkdev-9B72FF?style=flat&logo=x&logoColor=white)](https://x.com/bilalmlkdev)
-[![Portfolio](https://img.shields.io/badge/Portfolio-bilalmlkdev.vercel.app-9B72FF?style=flat&logo=vercel&logoColor=white)](https://bilalmlkdev.vercel.app)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Bilal%20Malik-9B72FF?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bilalmlkdev/)
-[![Email](https://img.shields.io/badge/Email-bilalmlkdev@gmail.com-9B72FF?style=flat&logo=gmail&logoColor=white)](mailto:bilalmlkdev@gmail.com)
-
-</p>
-
-<p align="right">
-<a href="#excusify">⬆ Back to Top</a>
-</p>
-
-
 # License
 
 This project is licensed under the **MIT License**.
@@ -336,9 +307,6 @@ SOFTWARE.
 ```
 
 
-<p align="left">
-© 2026 <strong>Excusify</strong>. Licensed under the MIT License.
-</p>
 
 ---
 
