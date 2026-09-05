@@ -22,7 +22,7 @@
 [![excusify Dashboard](https://raw.githubusercontent.com/bilalmlkdev/excusify/main/src/assets/preview.png)](https://excusify.vercel.app/)
 
 
-# About Excusify
+# What is Excusify?
 
 **Excusify** is an open-source excuse generator built for developers, teams, and anyone who's ever needed a quick, believable reason to explain a missed deadline, bug, or deployment failure.
 
@@ -131,8 +131,6 @@ Add a new entry:
 
 Once added, the new excuses automatically become available throughout the application without requiring any additional configuration.
 
-
-
 # Project Structure
 
 ```text
@@ -163,86 +161,6 @@ Excusify is optimized for a fast, lightweight experience.
 - **Local Persistence** stores favorites, history, and settings using `localStorage`.
 - **Zero Network Requests** because everything runs client-side.
 - **Optimized Rendering** keeps interactions smooth across modern browsers.
-
-# Built With
-
-Excusify is built using a modern frontend stack focused on performance, maintainability, and developer experience.
-
-| Technology | Purpose |
-|------------|---------|
-| **React** | Component-based user interface |
-| **Vite** | Fast development server and optimized production builds |
-| **Tailwind CSS v4** | Utility-first styling framework |
-| **JavaScript (ES6+)** | Core application logic |
-| **Lucide React** | Modern icon library |
-| **React Icons** | Additional icon collections |
-| **html2canvas** | Export excuse cards as PNG images |
-
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=react,vite,tailwind,js,git" />
-</p>
-
-
-
-# Getting Started
-
-Running Excusify locally only takes a few minutes.
-
-## Prerequisites
-
-Before getting started, make sure you have the following installed:
-
-- Node.js (Latest LTS recommended)
-- npm or Yarn
-- A modern web browser (Chrome, Edge, Firefox, or Safari)
-
-
-
-## Installation
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/bilalmlkdev/excusify.git
-```
-
-### 2. Navigate to the project
-
-```bash
-cd excusify
-```
-
-### 3. Install dependencies
-
-```bash
-npm install
-```
-
-### 4. Start the development server
-
-```bash
-npm run dev
-```
-
-Once the server is running, open the local URL displayed in your terminal.
-
----
-
-# Production Build
-
-Create an optimized production build:
-
-```bash
-npm run build
-```
-
-Preview the production build locally:
-
-```bash
-npm run preview
-```
-
-
 
 # Contributing
 
@@ -276,7 +194,6 @@ Add a new picker entry with a unique `id` and icon.
 
 Once completed, the new excuses automatically become available throughout the application without any additional configuration.
 
----
 
 # License
 
