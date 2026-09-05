@@ -60,7 +60,7 @@ export default function AboutTab({ isDark, totalCount, onClose }) {
       value: "Bilal Malik",
       href: "https://linkedin.com/in/bilalmlkdev",
       accent: "text-emerald-500",
-      icon: <FaLinkedIn className="w-3 h-3" />,
+      icon: <FaLinkedin className="w-3 h-3" />,
     },
     {
       label: "Twitter",
