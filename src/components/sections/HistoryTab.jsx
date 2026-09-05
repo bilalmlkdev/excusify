@@ -61,14 +61,14 @@ export default function HistoryTab({
               {showAll ? "Show recent" : "Show all"}
             </button>
           )}
-          {onClose && (
+          {/* {onClose && (
             <button
               onClick={onClose}
               className={`text-xs font-sans px-2 py-1 rounded-lg border ${isDark ? "border-zinc-700 text-zinc-400" : "border-zinc-200 text-zinc-600"}`}
             >
               Close
             </button>
-          )}
+          )} */}
         </div>
       </div>
 
