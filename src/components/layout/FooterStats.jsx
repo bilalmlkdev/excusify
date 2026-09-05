@@ -1,5 +1,4 @@
 // src/components/layout/FooterStats.jsx
-import { ExternalLink } from "lucide-react";
 import pkg from "../../../package.json";
 
 function parseRepoUrl(url) {
@@ -45,7 +44,6 @@ export function FooterStats({ totalCount, isDark, className = "" }) {
             className={`flex items-center gap-1.5 text-[11px] font-medium transition-colors ${textCl} ${hoverCl}`}
           >
             <span>GitHub</span>
-            <ExternalLink className="w-3 h-3 opacity-50" />
           </a>
         )}
       </div>
